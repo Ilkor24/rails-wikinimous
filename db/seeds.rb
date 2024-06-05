@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+Article.destroy_all
+
+puts 'enter in faker'
+
+10.times do
+  article = Article.new(
+    title: Faker::Movie.title,
+    content: Faker::Lorem.sentence
+  )
+  article.save!
+end
+
+puts 'faker finish'
